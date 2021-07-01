@@ -1,4 +1,4 @@
-package com.calc.huntprofit.console;
+/*package com.calc.huntprofit.console;
 
 import java.util.Scanner;
 
@@ -29,3 +29,4 @@ public class ProgramProfit {
 	}
 
 }
+*/

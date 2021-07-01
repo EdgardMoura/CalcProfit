@@ -11,15 +11,25 @@ import com.calc.huntprofit.util.HuntProfit;
 
 @RestController
 public class HuntProfitController {
+	
+
+	@RequestMapping(value = "/")
+	public @ResponseBody String Informacao() {
+				
+		return "<b>Enter the corresponding values! For Example: <br> "
+				+ "/imprimi/Elder Druid name/Ed spending/Party profit </b>";
+	}
+	
 	@Autowired
 	HuntProfitRepository huntProfitRepository;
 	
-	
-	@RequestMapping(value="/imprimi/{nameEd}/{partyProfit}/{suplyEd}")
-	public @ResponseBody String imprimi(@PathVariable String nameEd, @PathVariable Double partyProfit, @PathVariable Double suplyEd) {
+	@RequestMapping(value = "/imprimi/{nameEd}/{partyProfit}/{suplyEd}")
+	public @ResponseBody String imprimi(@PathVariable String nameEd, @PathVariable Double partyProfit,
+			@PathVariable Double suplyEd) {
 		HuntProfit hunt = new HuntProfit(nameEd, partyProfit, suplyEd);
 		huntProfitRepository.save(hunt);
-		
+
 		return hunt.ToStringHTML();
+
 	}
 }

@@ -71,7 +71,7 @@ public class HuntProfit {
 		this.ekReal = edTransfer(this.getProfitParty(), this.getSuplyEd()) - this.getSuplyEd();
 	}
 		
-	public String ToString() {
+	/*public String ToString() {
 		return "O gasto do ED " 
 				+ NomeEd + " foi de : " 
 				+ String.format("%.2f", this.getSuplyEd()) 
@@ -86,21 +86,18 @@ public class HuntProfit {
 				+ "\n"				
 				+ "O profit REAL do EK foi de: " 
 				+ String.format("%.2f", this.getEkReal());
-	}
+	}*/
 	
 	public String ToStringHTML() {
 		return "O gasto do ED " 
 				+ NomeEd + " foi de : " 
-				+ String.format("%.2f", this.getSuplyEd())+"<br>" 
-				+ "\n"
+				+ String.format("%.2f", this.getSuplyEd())+ "<br>"
 				+ "O PROFIT da party foi de : " 
-				+ String.format("%.2f", this.getProfitParty()) 
-				+ "\n"
+				+ String.format("%.2f", this.getProfitParty())+ "<br>"
 				+ "O valor a ser transferido para o " 
 				+ NomeEd 
 				+ " é de : " 
-				+ String.format("%.2f", this.edTransfer(this.getProfitParty(), this.getSuplyEd())) 
-				+ "\n"				
+				+ String.format("%.2f", this.edTransfer(this.getProfitParty(), this.getSuplyEd()))+ "<br>"				
 				+ "O profit REAL do EK foi de: " 
 				+ String.format("%.2f", this.getEkReal());
 	}
