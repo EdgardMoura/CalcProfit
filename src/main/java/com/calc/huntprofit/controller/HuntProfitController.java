@@ -32,4 +32,11 @@ public class HuntProfitController {
 		return hunt.ToStringHTML();
 
 	}
+	
+	@RequestMapping(value = "/delete/{id}")
+	public @ResponseBody String Delete(@PathVariable Long id) {
+		huntProfitRepository.deleteById(id);
+		
+		return "<b>Delete register done! <br> ";
+	}
 }
