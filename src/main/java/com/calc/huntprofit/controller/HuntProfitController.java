@@ -40,7 +40,7 @@ public class HuntProfitController {
 
 	}
 	
-	/*@Autowired		
+	@Autowired		
 	@RequestMapping(value = "/delete/{id}")
 	public String Delete(@PathVariable Long id) {
 		
@@ -48,6 +48,6 @@ public class HuntProfitController {
 		
 		return "<b>Delete register done! <br> ";
 	}
-	*/
+	
 	
 }
