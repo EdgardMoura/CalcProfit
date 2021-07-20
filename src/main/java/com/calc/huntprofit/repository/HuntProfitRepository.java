@@ -19,7 +19,13 @@ public interface HuntProfitRepository extends JpaRepository<HuntProfit, Long>{
 	@Query(nativeQuery=true, value="select count(*) from public.hunt_profit where id = ?1")
     public int countItem(Long Id);
 	
+	@Query(nativeQuery=true, value="select count(*) from hunt_profit where nome_ed = ?1")
+    public String countItem(String NomeEd);
+	
 	@Query(nativeQuery=true, value="select * from public.hunt_profit where id = ?1")
     public List<HuntProfit> findItem(Long Id);
+	
+	@Query(nativeQuery=true, value="select * from hunt_profit where nome_ed = ?1")
+    public <NomeEd> List<HuntProfit> findItem(String NomeEd);
 
 }

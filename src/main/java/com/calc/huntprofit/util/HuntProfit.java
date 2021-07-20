@@ -76,7 +76,7 @@ public class HuntProfit {
 	private double edTransfer(Double a, Double b) {
 		return a / 2 + b;
 	}
-
+	
 	public Double getEkReal() {
 		return ekReal;
 	}

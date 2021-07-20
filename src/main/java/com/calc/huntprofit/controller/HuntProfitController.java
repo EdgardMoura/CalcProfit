@@ -82,5 +82,24 @@ public class HuntProfitController {
 			return "<b> Id not found!<b>";
 		}
 	}
+	
+	
+	@RequestMapping(value = "/findname/{nomeEd}")
+	public String Find (@PathVariable String nomeEd){
+		String temp1 = "";
+		if (huntProfitRepository.countItem(nomeEd) != null) {
+			
+				 for(HuntProfit item : huntProfitRepository.findItem(nomeEd)){
+			            temp1 += (item.getNomeEd() + "  -  "
+			            + item.getProfitParty() + "  -  "
+			            + item.getEkReal()
+			            + "<br>");
+			        }
+				return temp1;								
+		}
+		else {
+			return "<b> Name not found!<b>";
+		}
+	}
 }
 
