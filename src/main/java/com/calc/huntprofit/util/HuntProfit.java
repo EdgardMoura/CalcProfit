@@ -13,7 +13,9 @@ import javax.persistence.Table;
 public class HuntProfit {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
+	
+
 	@Column(name = "NomeEd")
 	private String NomeEd;
 	@Column(name = "SuplyEd")
@@ -24,6 +26,13 @@ public class HuntProfit {
 	private Double ekReal;
 	
 	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getNomeEd() {
 		return NomeEd;
@@ -56,8 +65,13 @@ public class HuntProfit {
 		this.setProfitParty(profitParty);
 		this.setEkReal();
 	}
-
 	
+	
+	
+
+	public HuntProfit() {
+		
+	}
 
 	private double edTransfer(Double a, Double b) {
 		return a / 2 + b;

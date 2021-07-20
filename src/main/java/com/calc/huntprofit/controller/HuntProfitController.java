@@ -1,7 +1,6 @@
 package com.calc.huntprofit.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -40,14 +39,48 @@ public class HuntProfitController {
 
 	}
 	
-	@Autowired		
+			
 	@RequestMapping(value = "/delete/{id}")
-	public String Delete(@PathVariable Long id) {
+	public String Delete (@PathVariable Long id){
 		
-		huntProfitRepository.deleteById(id);
-		
-		return "<b>Delete register done! <br> ";
+		if (huntProfitRepository.countItem(id) > 0) {
+			try {
+				huntProfitRepository.deleteItem(id);
+				
+				return "<b>Delete register done! <br> ";
+				}
+				catch (Exception ex) {
+					return "<b>Id isn'n valid <b>" 
+				+ ex.toString();					
+				}
+		}
+		else {
+			return "<b> Id not found!<b>";
+		}
+	}	
+	
+	@RequestMapping(value = "/find/{id}")
+	public String Find (@PathVariable Long id){
+		String temp = "";
+		if (huntProfitRepository.countItem(id) > 0) {
+			try {
+				 for(HuntProfit item : huntProfitRepository.findItem(id)){
+			            temp += (item.getId().toString() + "  -  " 
+				 + item.getNomeEd() + "  -  "
+				 + item.getEkReal().toString() + "  -  "
+				 + item.getSuplyEd().toString() + "<br>");
+			        }
+				return temp;
+				
+				}
+				catch (Exception ex) {
+					return "<b>Id isn'n valid <br>" 
+				+ ex.toString();					
+				}
+		}
+		else {
+			return "<b> Id not found!<b>";
+		}
 	}
-	
-	
 }
+
