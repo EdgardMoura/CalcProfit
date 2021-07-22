@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.calc.huntprofit.util.HuntProfit;
+import com.calc.huntprofit.model.HuntProfit;
 
 public interface HuntProfitRepository extends JpaRepository<HuntProfit, Long>{
 	

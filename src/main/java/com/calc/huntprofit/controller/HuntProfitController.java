@@ -1,13 +1,17 @@
 package com.calc.huntprofit.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.calc.huntprofit.model.HuntProfit;
 import com.calc.huntprofit.repository.HuntProfitRepository;
-import com.calc.huntprofit.util.HuntProfit;
 
 @RestController
 public class HuntProfitController {
@@ -104,6 +108,22 @@ public class HuntProfitController {
 	
 	public int countIten(int a) {
 		return huntProfitRepository.countItem((long) a);
+	}
+	
+	
+	@RequestMapping(value = "/findjson/{nomeEd}", method = RequestMethod.GET,
+			produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<HuntProfit> allPlayer(@PathVariable String nomeEd){
+		
+		if (huntProfitRepository.countItem(nomeEd) != null) {
+							
+			        
+				return huntProfitRepository.findItem(nomeEd);								
+		}
+		else {
+			return null;
+		
+		}
 	}
 }
 

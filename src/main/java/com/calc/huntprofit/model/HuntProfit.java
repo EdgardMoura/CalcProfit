@@ -1,4 +1,4 @@
-package com.calc.huntprofit.util;
+package com.calc.huntprofit.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -65,9 +65,7 @@ public class HuntProfit {
 		this.setProfitParty(profitParty);
 		this.setEkReal();
 	}
-	
-	
-	
+		
 
 	public HuntProfit() {
 		
@@ -85,22 +83,7 @@ public class HuntProfit {
 		this.ekReal = edTransfer(this.getProfitParty(), this.getSuplyEd()) - this.getSuplyEd();
 	}
 		
-	/*public String ToString() {
-		return "O gasto do ED " 
-				+ NomeEd + " foi de : " 
-				+ String.format("%.2f", this.getSuplyEd()) 
-				+ "\n"
-				+ "O PROFIT da party foi de : " 
-				+ String.format("%.2f", this.getProfitParty()) 
-				+ "\n"
-				+ "O valor a ser transferido para o " 
-				+ NomeEd 
-				+ " é de : " 
-				+ String.format("%.2f", this.edTransfer(this.getProfitParty(), this.getSuplyEd())) 
-				+ "\n"				
-				+ "O profit REAL do EK foi de: " 
-				+ String.format("%.2f", this.getEkReal());
-	}*/
+
 	
 	public String ToStringHTML() {
 		return "O gasto do ED " 
