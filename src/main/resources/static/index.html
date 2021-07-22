@@ -1,24 +1,85 @@
 <!DOCTYPE HTML>
 <html>
-<head> 
-    <title>Getting Started: Serving Web Content</title> 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body {
+	background: grey;
+	font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+	margin: 0px;
+	margin-top: 42px;
+}
+
+input, button {
+	height: 48px;
+	width: 100%;
+	margin: 10px auto;
+	-webkit-border-radius: 8px 8px 8px 8px;
+	border-radius: 8px 8px 8px 8px;
+	box-sizing: border-box;
+		
+}
+button {border:0px;
+font-size:16px;
+font-weight:bold;}
+input{border:0.1px #ccc solid;}
+section {
+	margin: 0 25%;
+	min-width: 360px;
+	background: white;
+	align: center;
+	display: block;
+	background: white;
+	padding: 40px 20px;
+	-webkit-border-radius: 16px 16px 16px 16px;
+	border-radius: 16px 16px 16px 16px;
+}
+
+section * {
+	text-align: center;
+	display: block;
+}
+
+.logo {
+	margin: 0 auto;
+	display: block;
+}
+
+.btn-pesquisar {
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fceabb+0,f8b500+100 */
+	background: #fceabb; /* Old browsers */
+	background: -moz-linear-gradient(top, #fceabb 0%, #f8b500 100%);
+	/* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #fceabb 0%, #f8b500 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #fceabb 0%, #f8b500 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb',
+		endColorstr='#f8b500', GradientType=0); /* IE6-9 */
+}
+</style>
 </head>
 <script src="js/utils.js"></script>
-<div id="demo">
-  <h2>Let AJAX change this text</h2>
-  <label for="fname">Digite o nome para buscar:</label><br>
-  <input type="text" id="fname" name="fname"><br><br>
-  
-  <h2>Let AJAX change this text</h2>
-  <label for="fdelete">Digite o id para deletar:</label><br>
-  <input type="text" id="fdelete" name="fdelete"><br><br>
+<section>
+	<div id="demo">
+		<img class="logo" src="img/logo.png">
+		<h2>TIBIA HUNT PROFIT</h2>
+		<label for="fname">Digite o nome para buscar:</label><br> <input
+			type="text" id="fname" name="fname">
+		<button class="btn-pesquisar" type="button" onclick="loadDoc()">PESQUISAR</button>
+		<h2>DELEÇÔES</h2>
+		<label for="fdelete">Digite o id para deletar:</label><br> <input
+			type="text" id="fdelete" name="fdelete">
+		<button type="button" onclick="loadDelete()">DELETE ID</button>
+	</div>
+	<div>
 
-</div>
-<div>
-  <button type="button" onclick="loadDoc()">Call Service</button>
-  <button type="button" onclick="loadDefault()">Change Content</button>
-  <button type="button" onclick="loadDelete()">Delete Id</button>
-</div>
+		<button type="button" onclick="loadDefault()">PAGINA INICIAL</button>
 
+	</div>
+</section>
 </html>
