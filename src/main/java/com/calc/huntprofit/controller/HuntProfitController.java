@@ -13,7 +13,7 @@ import com.calc.huntprofit.util.HuntProfit;
 public class HuntProfitController {
 	
 
-	@RequestMapping(value = "/")
+	@RequestMapping(value = "/info")
 	public @ResponseBody String Informacao() {
 				
 		return "<b>Enter the corresponding values! For Example: <br> "
@@ -100,6 +100,10 @@ public class HuntProfitController {
 		else {
 			return "<b> Name not found!<b>";
 		}
+	}
+	
+	public int countIten(int a) {
+		return huntProfitRepository.countItem((long) a);
 	}
 }
 
