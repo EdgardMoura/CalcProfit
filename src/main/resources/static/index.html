@@ -21,12 +21,20 @@ input, button {
 	-webkit-border-radius: 8px 8px 8px 8px;
 	border-radius: 8px 8px 8px 8px;
 	box-sizing: border-box;
-		
+	max-width:360px;
 }
-button {border:0px;
-font-size:16px;
-font-weight:bold;}
-input{border:0.1px #ccc solid;}
+
+button {
+	border: 0px;
+	font-size: 16px;
+	font-weight: bold;
+	cursor:pointer;
+}
+
+input {
+	border: 0.1px #ccc solid;
+}
+
 section {
 	margin: 0 25%;
 	min-width: 360px;
@@ -46,8 +54,10 @@ section * {
 
 .logo {
 	margin: 0 auto;
+	margin-bottom:32px;
 	display: block;
-}
+	cursor:pointer;
+	}
 
 .btn-pesquisar {
 	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fceabb+0,f8b500+100 */
@@ -65,8 +75,9 @@ section * {
 </head>
 <script src="js/utils.js"></script>
 <section>
+	<a onclick="loadDefault()"><img class="logo" src="img/logo.png"></a>
 	<div id="demo">
-		<img class="logo" src="img/logo.png">
+
 		<h2>TIBIA HUNT PROFIT</h2>
 		<label for="fname">Digite o nome para buscar:</label><br> <input
 			type="text" id="fname" name="fname">
@@ -78,7 +89,8 @@ section * {
 	</div>
 	<div>
 
-		<button type="button" onclick="loadDefault()">PAGINA INICIAL</button>
+		<button type="button" onclick="loadDefault()">CONTINUE
+			NAVEGANDO</button>
 
 	</div>
 </section>
