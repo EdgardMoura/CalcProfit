@@ -13,29 +13,43 @@ public class DataUser {
 	@Id
 	@Column(name = "Email")
 	private String Email;
-	@Column(name = "Password")
-	private String Password;
-
+	@Column(name = "Pass")
+	private String Pass;
+	@Column(name = "NewPass")
+	private String NewPass;
+	
+		
 	public String getEmail() {
 		return Email;
 	}
-
 	public void setEmail(String email) {
 		Email = email;
 	}
-
-	public String getPassword() {
-		return Password;
+	public String getPass() {
+		return Pass;
+	}
+	public void setPass(String pass) {
+		Pass = pass;
+	}
+	public String getNewPass() {
+		return NewPass;
+	}
+	public void setNewPass(String newPass) {
+		NewPass = newPass;
 	}
 
-	public void setPassword(String password) {
-		Password = password;
+	
+	public DataUser(String email, String pass, String newPass) {
+		Email = email;
+		Pass = pass;
+		NewPass = newPass;
 	}
-
-	public DataUser(String email, String password) {
+	
+	public DataUser(String email, String pass) {
 			this.setEmail(email);
-			this.setPassword(password);
+			this.setPass(pass);
 		}
+	
 	public DataUser() {		
 	}
 }

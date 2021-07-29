@@ -24,11 +24,13 @@ public class HuntProfitController {
 				+ "/imprimi/Elder Druid name/Ed spending/Party profit </b>";
 	}
 	
+	
 	@RequestMapping(value = "/delete/")
 	public @ResponseBody String Informacao1() {
 				
 		return "<b>Non-existent id!! <br> ";
 	}
+	
 	
 	@Autowired
 	HuntProfitRepository huntProfitRepository;
@@ -40,7 +42,6 @@ public class HuntProfitController {
 		huntProfitRepository.save(hunt);
 
 		return hunt.ToStringHTML();
-
 	}
 	
 			
@@ -63,6 +64,7 @@ public class HuntProfitController {
 		}
 	}	
 	
+	
 	@RequestMapping(value = "/find/{id}")
 	public String Find (@PathVariable Long id){
 		String temp = "";
@@ -74,8 +76,7 @@ public class HuntProfitController {
 				 + item.getEkReal().toString() + "  -  "
 				 + item.getSuplyEd().toString() + "<br>");
 			        }
-				return temp;
-				
+				return temp;				
 				}
 				catch (Exception ex) {
 					return "<b>Id isn'n valid <br>" 
@@ -121,10 +122,8 @@ public class HuntProfitController {
 				return huntProfitRepository.findItem(nomeEd);								
 		}
 		else {
-			return null;
-		
-		}
-		
+			return null;		
+		}		
 	}
 }
 

@@ -2,6 +2,8 @@ package com.calc.huntprofit.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,25 +19,44 @@ public class UserController {
 	@Autowired//notaçao para utilizaçao de jpa
 	UserRepository userRepository;
 	
-	@RequestMapping(value = "/cadastro/{email}/{password}")//caminho e o tipo da request, padronizaçao da requisiçao
-	public @ResponseBody String cadastro(@PathVariable String email, @PathVariable String password) {//tratamento do corpo da resposta
-		DataUser user = new DataUser(email, password);
-		userRepository.save(user);
-		//.save já é nativo
-
+	@RequestMapping(value = "/cadastro/{email}/{pass}")//caminho e o tipo da request, padronizaçao da requisiçao
+	public @ResponseBody String cadastro(@PathVariable String email, @PathVariable String pass) {//tratamento do corpo da resposta
+		DataUser user = new DataUser(email, pass);
+		if(userRepository.existingUser(email) == 1) {
+			return "Existing user!";
+		}
+		else {
+		userRepository.save(user);	//.save já é nativo	
 		return "Success!";
-
+		}
 	}
 	
-	@RequestMapping(value = "/login/{email}/{password}")
-	public @ResponseBody String conutItem(@PathVariable String email, @PathVariable String password)
+	@RequestMapping(value = "/login/{email}/{pass}")
+	public @ResponseBody String validation(@PathVariable String email, @PathVariable String pass)
 	{
-		if(userRepository.countItem(email, password)>0)
+		if(userRepository.validation(email, pass)!= 0)
 		{
 		return "Logado com sucesso";
 		}
 		else {
-			return "User ou senha incorreto";
+			return "Incorrect username or password!";
+		}
+	}
+	
+	@Transactional
+	@Modifying
+	@RequestMapping(value = "/trocasenha/{email}/{pass}/{newPass}")
+	public @ResponseBody String imprimi(@PathVariable String email, @PathVariable String pass,
+			@PathVariable String newPass) {
+		DataUser user = new DataUser(email, newPass);
+		
+		if(userRepository.validation(email, pass) != 1) {
+			return "Incorrect username or password!";
+		}
+		else {			
+		userRepository.save(user);
+
+		return "Password changed successfully!";
 		}
 	}
 }
