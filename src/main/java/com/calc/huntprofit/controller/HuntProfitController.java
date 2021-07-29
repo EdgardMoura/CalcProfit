@@ -124,6 +124,7 @@ public class HuntProfitController {
 			return null;
 		
 		}
+		
 	}
 }
 

@@ -26,4 +26,16 @@ public class UserController {
 		return "Success!";
 
 	}
+	
+	@RequestMapping(value = "/login/{email}/{password}")
+	public @ResponseBody String conutItem(@PathVariable String email, @PathVariable String password)
+	{
+		if(userRepository.countItem(email, password)>0)
+		{
+		return "Logado com sucesso";
+		}
+		else {
+			return "User ou senha incorreto";
+		}
+	}
 }
